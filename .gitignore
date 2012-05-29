@@ -39,3 +39,6 @@ Session.vim
 
 # Ignore NERD_Tree files
 NERD_tree*
+
+# Ignore uploads
+public/uploads/*
