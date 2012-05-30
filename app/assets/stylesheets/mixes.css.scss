@@ -1,3 +1,12 @@
 // Place all the styles related to the Mixes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+p.waveform-container
+{
+  width: 90%;
+
+  img.waveform
+  {
+    width: 100%;
+  }
+}

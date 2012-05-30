@@ -26,4 +26,5 @@ gem 'carrierwave'
 
 gem 'waveform', require: false
 
-gem 'resque', :require => "resque/server"
+gem 'resque', require: "resque/server"
+gem 'resque-meta', require: "resque-meta"

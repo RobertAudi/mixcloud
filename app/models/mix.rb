@@ -1,5 +1,5 @@
 class Mix < ActiveRecord::Base
-  attr_accessible :title, :sound_file
+  attr_accessible :title, :sound_file, :waveform_job_id
 
   mount_uploader :sound_file, MixUploader
 

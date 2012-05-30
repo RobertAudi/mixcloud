@@ -42,3 +42,6 @@ NERD_tree*
 
 # Ignore uploads
 public/uploads/*
+
+# Ignore waveforms
+app/assets/waveforms/*

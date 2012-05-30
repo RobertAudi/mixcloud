@@ -9,7 +9,9 @@ class MixesController < ApplicationController
   def create
     @mix = Mix.new(params[:mix])
     if @mix.save
-      Resque.enqueue(WaveformGenerator, @mix.id)
+      meta = WaveformGenerator.enqueue(@mix.id)
+
+      @mix.update_attributes({waveform_job_id: meta.meta_id})
 
       flash[:success] = "Mix successfully uploaded"
       redirect_to mix_url(@mix)
@@ -20,6 +22,8 @@ class MixesController < ApplicationController
 
   def show
     @mix = Mix.find(params[:id])
-    @waveform = "/waveforms/#{@mix.id}-#{File.basename(@mix.sound_file.to_s, File.extname(@mix.sound_file.to_s))}.png"
+
+    @meta = WaveformGenerator.get_meta(@mix.waveform_job_id)
+    @waveform = "/assets/#{@mix.id}-#{File.basename(@mix.sound_file.to_s, File.extname(@mix.sound_file.to_s))}.png"
   end
 end

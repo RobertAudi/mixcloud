@@ -1,9 +1,11 @@
 require 'waveform'
 
 class WaveformGenerator
+  extend Resque::Plugins::Meta
+
   @queue = :waveform_queue
 
-  def self.perform(mix_id)
+  def self.perform(meta_id, mix_id)
     mix = Mix.find(mix_id)
 
     options = {
@@ -16,7 +18,7 @@ class WaveformGenerator
       quiet: true
     }
 
-    waveform = "./public/waveforms/#{mix.id}-#{File.basename(mix.sound_file.to_s, File.extname(mix.sound_file.to_s))}.png"
+    waveform = "./app/assets/waveforms/#{mix.id}-#{File.basename(mix.sound_file.to_s, File.extname(mix.sound_file.to_s))}.png"
     ::Waveform.new("./public" + mix.sound_file.to_s, nil).generate(waveform, options)
   end
 end

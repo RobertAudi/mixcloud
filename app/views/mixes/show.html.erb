@@ -1,1 +1,5 @@
-<%= debug @mix %>
+<% if @meta.finished? %>
+  <p class="waveform-container"><%= image_tag @waveform, class: "waveform" %></p>
+<% else %>
+  The waveform is being generated.
+<% end %>

@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529204103) do
+ActiveRecord::Schema.define(:version => 20120530163559) do
 
   create_table "mixes", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "sound_file"
+    t.string   "waveform_job_id"
   end
 
 end
