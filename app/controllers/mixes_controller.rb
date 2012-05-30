@@ -9,6 +9,8 @@ class MixesController < ApplicationController
   def create
     @mix = Mix.new(params[:mix])
     if @mix.save
+      Resque.enqueue(WaveformGenerator, @mix.id)
+
       flash[:success] = "Mix successfully uploaded"
       redirect_to mix_url(@mix)
     else

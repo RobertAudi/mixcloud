@@ -23,3 +23,7 @@ end
 gem 'jquery-rails'
 
 gem 'carrierwave'
+
+gem 'waveform', require: false
+
+gem 'resque', :require => "resque/server"
