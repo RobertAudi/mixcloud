@@ -20,5 +20,6 @@ class MixesController < ApplicationController
 
   def show
     @mix = Mix.find(params[:id])
+    @waveform = "/waveforms/#{@mix.id}-#{File.basename(@mix.sound_file.to_s, File.extname(@mix.sound_file.to_s))}.png"
   end
 end

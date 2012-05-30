@@ -16,7 +16,7 @@ class WaveformGenerator
       quiet: true
     }
 
-    waveform = "./public/waveforms/#{File.basename(mix.sound_file.to_s, File.extname(mix.sound_file.to_s))}.png"
+    waveform = "./public/waveforms/#{mix.id}-#{File.basename(mix.sound_file.to_s, File.extname(mix.sound_file.to_s))}.png"
     ::Waveform.new("./public" + mix.sound_file.to_s, nil).generate(waveform, options)
   end
 end
