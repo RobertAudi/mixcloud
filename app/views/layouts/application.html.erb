@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<%= yield %>
+  <%= yield %>
 
+  <%= javascript_include_tag "jquery.jplayer.min" %>
+  <%= javascript_include_tag params[:controller] %>
 </body>
 </html>
